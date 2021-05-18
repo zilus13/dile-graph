@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.js"></script>
+
+    <style>
+      body {
+        background: #fafafa;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="demo"></div>
+
+    <script type="module">
+      import { html, render } from "lit-html";
+      import "../dile-graph.js";
+
+      const title = "titulo de prueba";
+      const columnas = ["col1", "col2"];
+      const valores = [4, 8.5];
+      const color = ["rgba(255, 206, 86, 0.2)", "rgba(75, 192, 192, 0.2)"];
+      const colorDeBordes = ["red", "blue"];
+      render(
+        html`
+          <dile-graph> </dile-graph>
+          <br />
+          <dile-graph
+            .tituloDeGrafico=${title}
+            .columnasDelgrafico=${columnas}
+            .valoresDeColumnas=${valores}
+            .coloresDeColumnas=${color}
+            .coloresDeBordesDeColumnas=${colorDeBordes}
+          >
+          </dile-graph>
+        `,
+        document.querySelector("#demo")
+      );
+    </script>
+  </body>
+</html>
